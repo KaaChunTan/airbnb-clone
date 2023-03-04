@@ -53,7 +53,7 @@ app.post('/login', async (req, res) => {
         email: userDoc.email,
         id: userDoc._id
       }, jwtSecret, {}, (err, token) => {
-        if(err) throw err;
+        if(err) throw err;  
         res.cookie('token', token).json(userDoc);
       })
     } else {
@@ -73,6 +73,10 @@ app.get('/profile', async(req, res) => {
   } else {
     res.json(null);
   }
+})
+
+app.post('/logout', async(req,res) => {
+  res.cookie('token', '').json(true);
 })
 
 app.listen('4000', () => {
