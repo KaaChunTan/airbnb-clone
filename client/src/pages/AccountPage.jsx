@@ -71,6 +71,7 @@ const AccountPage = () => {
           <PlacesPage/>
         )
       }
+      <></>
     </div>
   )
 }
